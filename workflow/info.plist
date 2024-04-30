@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.bjrnt.bear</string>
+	<string>com.dzombak.bear</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
-		<key>E0B7F513-FA5A-4CB5-B7FB-461104881DB9</key>
+		<key>32A6D04F-624E-4CC2-8D52-DA218FA43111</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -23,9 +23,9 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Bjorn Tegelund</string>
+	<string>Bjorn Tegelund, Chris Dzombak</string>
 	<key>description</key>
-	<string>Handles Bear integration for Alfred.</string>
+	<string>Search and open Bear notes using Alfred.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -77,7 +77,7 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>E0B7F513-FA5A-4CB5-B7FB-461104881DB9</string>
+			<string>32A6D04F-624E-4CC2-8D52-DA218FA43111</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -116,7 +116,7 @@
 			<key>ypos</key>
 			<real>80</real>
 		</dict>
-		<key>E0B7F513-FA5A-4CB5-B7FB-461104881DB9</key>
+		<key>32A6D04F-624E-4CC2-8D52-DA218FA43111</key>
 		<dict>
 			<key>xpos</key>
 			<real>80</real>
@@ -166,8 +166,8 @@
 		</dict>
 	</array>
 	<key>version</key>
-	<string>3.1.0</string>
+	<string>__WORKFLOW_VERSION__</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/cdzombak/alfred-bear</string>
 </dict>
 </plist>

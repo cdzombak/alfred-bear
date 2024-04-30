@@ -1,4 +1,4 @@
-module github.com/bjrnt/alfred-bear
+module github.com/cdzombak/alfred-bear
 
 require (
 	github.com/deanishe/awgo v0.29.1

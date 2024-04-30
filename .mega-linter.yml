@@ -1,0 +1,14 @@
+# https://megalinter.io/configuration/
+---
+VALIDATE_ALL_CODEBASE: true
+
+DISABLE:
+  - SPELL
+DISABLE_LINTERS:
+  - MAKEFILE_CHECKMAKE
+
+GO_REVIVE_CONFIG_FILE: ".revive.toml"
+
+SHOW_ELAPSED_TIME: false
+FILEIO_REPORTER: false
+PRINT_ALPACA: false
