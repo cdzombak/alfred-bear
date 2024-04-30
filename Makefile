@@ -17,8 +17,8 @@ clean: ## Remove all build outputs
 .PHONY: build
 build: ## Build the alfred-bear binary
 	mkdir -p out
-	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o ./out/alfred-bear-amd64 main.go
-	CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o ./out/alfred-bear-arm64 main.go
+	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o ./out/alfred-bear-amd64 .
+	CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o ./out/alfred-bear-arm64 .
 	lipo -create -output ./out/alfred-bear ./out/alfred-bear-amd64 ./out/alfred-bear-arm64
 
 .PHONY: package  # TODO(cdzombak):
