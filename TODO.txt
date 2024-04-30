@@ -1,2 +1,0 @@
-- fix notes location
-- move to native go sqlite

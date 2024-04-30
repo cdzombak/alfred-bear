@@ -60,7 +60,7 @@
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string>./alfred-bear "$1"</string>
+				<string>./bin/alfred-bear "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -109,17 +109,17 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>9454A998-DEB4-4E4E-81FA-081EBD5A2F3F</key>
-		<dict>
-			<key>xpos</key>
-			<real>340</real>
-			<key>ypos</key>
-			<real>80</real>
-		</dict>
 		<key>32A6D04F-624E-4CC2-8D52-DA218FA43111</key>
 		<dict>
 			<key>xpos</key>
 			<real>80</real>
+			<key>ypos</key>
+			<real>80</real>
+		</dict>
+		<key>9454A998-DEB4-4E4E-81FA-081EBD5A2F3F</key>
+		<dict>
+			<key>xpos</key>
+			<real>340</real>
 			<key>ypos</key>
 			<real>80</real>
 		</dict>
