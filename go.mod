@@ -1,6 +1,6 @@
 module alfred-bear
 
-go 1.22.2
+go 1.22
 
 require (
 	github.com/deanishe/awgo v0.29.1
