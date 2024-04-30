@@ -19,7 +19,8 @@ type note struct {
 }
 
 const (
-	// See: https://bear.app/faq/Where%20are%20Bear%27s%20notes%20located/
+	// BEAR_DB_LOC is the location of Bear's SQLite database.
+	// See: https://bear.app/faq/where-are-bears-notes-located
 	BEAR_DB_LOC = "/Library/Group Containers/9K33E3U3T4.net.shinyfrog.bear/Application Data/database.sqlite"
 
 	// The primary query to search for notes in Bear's SQLite database. Bear uses Core Data under
