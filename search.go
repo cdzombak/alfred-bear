@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
+	_ "modernc.org/sqlite"
 )
 
 // note is a Bear note
@@ -78,7 +79,7 @@ func search(query string) ([]note, error) {
 // openDB opens Bear's SQLite database in readonly mode
 func openDB() (*sql.DB, error) {
 	dbLoc := fmt.Sprintf("file:%s%s?mode=ro", userHomeDir, BEAR_DB_LOC)
-	return sql.Open("sqlite3", dbLoc)
+	return sql.Open("sqlite", dbLoc)
 }
 
 // parseNotes from SQL query result rows
