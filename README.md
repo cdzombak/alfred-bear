@@ -22,8 +22,9 @@ Principal changes in @cdzombak's fork:
 - Use [modernc.org/sqlite](https://pkg.go.dev/modernc.org/sqlite) to remove cgo dependency
 - Update dependencies
 - Use GitHub Actions for the build & release process
+- Build the embedded `alfred-bear` binary for both Intel and Apple Silicon processors
 - Codesign the embedded `alfred-bear` binary for distribution outside the Mac App Store
-- Notarize the workflow for distribution
+- Notarize the workflow in a DMG for distribution
 
 ## License
 
