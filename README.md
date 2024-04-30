@@ -1,25 +1,30 @@
 # alfred-bear
 
-> Allows you to quickly search for and open Bear notes from Alfred. It will search tags, note content, titles, etc. to try to bring you the best match.
+Allows you to quickly search for and open Bear notes from Alfred. It will search tags, note content, titles, etc. to try to bring you the best match.
 
-![usage example screenshot](/image.png)
+![usage example screenshot](/readme.images/image.png)
 
 ## Installation
 
-Grab the latest release [here](https://github.com/bjrnt/alfred-bear/releases/) and install the workflow file.
-
-_Note:_ The first time you use the extension, it will be blocked from running and you will have to open "Security & Privacy" to allow it.
+Download `alfred-bear-VERSION.alfredworkflow.dmg` from the [latest release](https://github.com/cdzombak/alfred-bear/releases/latest), open the downloaded `.dmg` file, and double-click the `.alfredworkflow` file to install it.
 
 ## Usage
 
 Open Alfred and type `b` and try typing a query. You can change the search keyword or configure a hotkey for it in the workflow settings.
 
-## Maintenance
+## About
 
-### Issues and Feature Requests
+Maintained by [Chris Dzombak](https://www.dzombak.com) ([@cdzombak on GitHub](https://github.com/cdzombak)).
 
-Feel free to open an issue for the project if you have encountered a problem or have a feature request for the workflow.
+Originally based on [bjrnt/alfred-bear](https://github.com/bjrnt/alfred-bear).
 
-### Building
+Principal changes in @cdzombak's fork:
+- Use [modernc.org/sqlite](https://pkg.go.dev/modernc.org/sqlite) to remove cgo dependency
+- Update dependencies
+- Use GitHub Actions for the build & release process
+- Codesign the embedded `alfred-bear` binary for distribution outside the Mac App Store
+- Notarize the workflow for distribution
 
-The project can be built, linked to Alfred, and released using [jason0x34/go-alfred](https://github.com/jason0x43/go-alfred). Commands for this can be found in [./.vscode/tasks.json](./.vscode/tasks.json).
+## License
+
+MIT; see LICENSE in this repository.
