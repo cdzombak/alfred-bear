@@ -105,7 +105,7 @@ jobs:
         env:
           DEVID_SIGNING_CERT_BASE64: ${{ secrets.DEVID_SIGNING_CERT }}
           DEVID_SIGNING_CERT_PASS: ${{ secrets.DEVID_SIGNING_CERT_PASS }}
-          DEVID_SIGNING_CERT_ID: E96F32F4C62CDE44BD2F9F7040F8D3C9EBEDD5B4
+          DEVID_SIGNING_CERT_ID: 072D402E34FDAA37E45A50A75D67FF974403582F
           KEYCHAIN_PASS: ${{ secrets.KEYCHAIN_PASS }}
         run: |
           security create-keychain -p "$KEYCHAIN_PASS" build.keychain
