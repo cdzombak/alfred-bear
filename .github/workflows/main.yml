@@ -89,7 +89,7 @@ jobs:
 
   package:
     name: Workflow Package
-    needs: [meta] #, lint
+    needs: [meta] # +lint
     if: needs.meta.outputs.is_running_version_tag_update != 'true'
     runs-on: macos-latest
     steps:
