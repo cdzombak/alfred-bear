@@ -2,7 +2,7 @@
 
 Allows you to quickly search for and open Bear notes from Alfred. It will search tags, note content, titles, etc. to try to bring you the best match.
 
-![usage example screenshot](/readme.images/image.png)
+![usage example screenshot](readme.images/image.png)
 
 ## Installation
 
