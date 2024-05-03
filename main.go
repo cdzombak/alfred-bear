@@ -5,7 +5,7 @@ import (
 	"os"
 
 	aw "github.com/deanishe/awgo"
-	humanize "github.com/dustin/go-humanize"
+	"github.com/dustin/go-humanize"
 	"golang.org/x/text/unicode/norm"
 )
 

@@ -19,17 +19,17 @@ type note struct {
 }
 
 const (
-	// BEAR_DB_LOC is the location of Bear's SQLite database.
+	// bearDbLocationWithinHomedir is the location of Bear's SQLite database.
 	// See: https://bear.app/faq/where-are-bears-notes-located
-	BEAR_DB_LOC = "/Library/Group Containers/9K33E3U3T4.net.shinyfrog.bear/Application Data/database.sqlite"
+	bearDbLocationWithinHomedir = "Library/Group Containers/9K33E3U3T4.net.shinyfrog.bear/Application Data/database.sqlite"
 
-	// The primary query to search for notes in Bear's SQLite database. Bear uses Core Data under
-	// the hood, which is why table and column names are a bit strange. Core data encodes dates as
-	// floats with a different base date from UNIX timestamps, so some date fiddling is required
-	// (see: https://stackoverflow.com/a/2923127/300664). The query turns them back into regular
-	// UNIX timestamps. Bear sets a ZTRASHEDDATE for notes that have been deleted, so we exclude
-	// those.
-	NOTE_QUERY = `
+	// noteQuery is the primary query to search for notes in Bear's SQLite database.
+	// Bear uses Core Data under the hood, which is why table and column names are a bit strange.
+	// Core Data encodes dates as  floats with a different base date from UNIX timestamps, so
+	// some date fiddling is required (see: https://stackoverflow.com/a/2923127/300664).
+	// The query turns them back into regular UNIX timestamps. Bear sets a ZTRASHEDDATE for
+	// notes that have been deleted, so we exclude those.
+	noteQuery = `
 	SELECT 
 		ZUNIQUEIDENTIFIER, 
 		ZTITLE, 
@@ -38,9 +38,10 @@ const (
 	FROM ZSFNOTE 
 	WHERE 
 	(ZTITLE LIKE ? OR ZTEXT LIKE ?)`
-	NOTE_QUERY_ORDERBY      = `ORDER BY ZMODIFICATIONDATE DESC`
-	NOTE_QUERY_NOT_TRASHED  = `AND ZTRASHEDDATE IS NULL`
-	NOTE_QUERY_NOT_ARCHIVED = `AND ZARCHIVEDDATE IS NULL`
+
+	noteQueryOrderby     = `ORDER BY ZMODIFICATIONDATE DESC`
+	noteQueryNotTrashed  = `AND ZTRASHEDDATE IS NULL`
+	noteQueryNotArchived = `AND ZARCHIVEDDATE IS NULL`
 )
 
 // search the user's notes for the given query.
@@ -55,14 +56,14 @@ func search(query string) ([]note, error) {
 	// the query to be surrounded by wildcard % chars.
 	query = fmt.Sprintf("%%%s%%", query)
 
-	queryParts := []string{NOTE_QUERY}
+	queryParts := []string{noteQuery}
 	if ignoreArchived {
-		queryParts = append(queryParts, NOTE_QUERY_NOT_ARCHIVED)
+		queryParts = append(queryParts, noteQueryNotArchived)
 	}
 	if ignoreTrashed {
-		queryParts = append(queryParts, NOTE_QUERY_NOT_TRASHED)
+		queryParts = append(queryParts, noteQueryNotTrashed)
 	}
-	queryParts = append(queryParts, NOTE_QUERY_ORDERBY)
+	queryParts = append(queryParts, noteQueryOrderby)
 
 	// execute query with escaped parameters
 	rows, err := db.Query(strings.Join(queryParts, " "), query, query)
@@ -79,7 +80,7 @@ func search(query string) ([]note, error) {
 
 // openDB opens Bear's SQLite database in readonly mode
 func openDB() (*sql.DB, error) {
-	dbLoc := fmt.Sprintf("file:%s%s?mode=ro", userHomeDir, BEAR_DB_LOC)
+	dbLoc := fmt.Sprintf("file:%s/%s?mode=ro", userHomeDir, bearDbLocationWithinHomedir)
 	return sql.Open("sqlite", dbLoc)
 }
 
@@ -87,7 +88,7 @@ func openDB() (*sql.DB, error) {
 func parseNotes(rows *sql.Rows) ([]note, error) {
 	defer rows.Close()
 
-	notes := []note{}
+	var notes []note
 
 	for rows.Next() {
 		note := note{}
