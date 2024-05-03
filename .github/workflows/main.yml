@@ -80,7 +80,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Archive MegaLinter artifacts
         if: ( !env.ACT && ( success() || failure() ) )
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: MegaLinter artifacts
           path: |
@@ -123,7 +123,7 @@ jobs:
       - name: Build workflow
         run: make package
       - name: Upload workflow artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ needs.meta.outputs.bin_name }}
           path: out
@@ -168,7 +168,7 @@ jobs:
           xcrun notarytool submit ./${{ needs.meta.outputs.bin_name }}.dmg --keychain-profile "notarytool-profile" --wait
           xcrun stapler staple ./${{ needs.meta.outputs.bin_name }}.dmg
       - name: Upload notarized .dmg artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ needs.meta.outputs.bin_name }}.dmg
           path: out/${{ needs.meta.outputs.bin_name }}.dmg
